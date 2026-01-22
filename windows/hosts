@@ -1,0 +1,304 @@
+# Copyright (c) 1993-2009 Microsoft Corp.
+#
+# This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
+#
+# This is a CUSTOM file blocking comprehensive lists of domains.
+# ONLY toph.co is explicitly allowed (by not being listed).
+
+# localhost name resolution is handled within DNS itself.
+#	127.0.0.1       localhost
+#	::1             localhost
+
+# ============================================================================
+# CUSTOM CONFIGURATION: TOTAL BLOCKLIST
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# 1. Search Engines
+# ----------------------------------------------------------------------------
+0.0.0.0 google.com
+0.0.0.0 www.google.com
+0.0.0.0 google.co.in
+0.0.0.0 www.google.co.in
+0.0.0.0 google.co.uk
+0.0.0.0 www.google.co.uk
+0.0.0.0 google.ca
+0.0.0.0 www.google.ca
+0.0.0.0 google.com.au
+0.0.0.0 www.google.com.au
+0.0.0.0 google.de
+0.0.0.0 www.google.de
+0.0.0.0 bing.com
+0.0.0.0 www.bing.com
+0.0.0.0 yahoo.com
+0.0.0.0 www.yahoo.com
+0.0.0.0 search.yahoo.com
+0.0.0.0 duckduckgo.com
+0.0.0.0 www.duckduckgo.com
+0.0.0.0 baidu.com
+0.0.0.0 www.baidu.com
+0.0.0.0 yandex.com
+0.0.0.0 www.yandex.com
+0.0.0.0 yandex.ru
+0.0.0.0 ask.com
+0.0.0.0 www.ask.com
+0.0.0.0 aol.com
+0.0.0.0 search.aol.com
+0.0.0.0 wolframalpha.com
+0.0.0.0 www.wolframalpha.com
+0.0.0.0 you.com
+0.0.0.0 www.you.com
+0.0.0.0 ecosia.org
+0.0.0.0 www.ecosia.org
+0.0.0.0 qwant.com
+0.0.0.0 www.qwant.com
+0.0.0.0 startpage.com
+0.0.0.0 www.startpage.com
+0.0.0.0 dogpile.com
+0.0.0.0 www.dogpile.com
+0.0.0.0 search.brave.com
+
+# ----------------------------------------------------------------------------
+# 2. Programming Documentation (User Requested Blocks)
+# ----------------------------------------------------------------------------
+# C/C++
+0.0.0.0 cppreference.com
+0.0.0.0 www.cppreference.com
+0.0.0.0 cplusplus.com
+0.0.0.0 www.cplusplus.com
+0.0.0.0 gcc.gnu.org
+0.0.0.0 www.sgi.com
+
+# Java
+0.0.0.0 docs.oracle.com
+0.0.0.0 www.oracle.com
+
+# Python
+0.0.0.0 python.org
+0.0.0.0 www.python.org
+0.0.0.0 docs.python.org
+
+# Other Languages
+0.0.0.0 go.dev
+0.0.0.0 golang.org
+0.0.0.0 doc.rust-lang.org
+0.0.0.0 www.rust-lang.org
+0.0.0.0 kotlinlang.org
+0.0.0.0 www.kotlinlang.org
+0.0.0.0 haskell.org
+0.0.0.0 www.haskell.org
+0.0.0.0 ruby-lang.org
+0.0.0.0 www.ruby-lang.org
+0.0.0.0 scala-lang.org
+0.0.0.0 www.scala-lang.org
+0.0.0.0 learn.microsoft.com
+0.0.0.0 docs.microsoft.com
+0.0.0.0 swift.org
+0.0.0.0 www.swift.org
+
+# ----------------------------------------------------------------------------
+# 3. Resources & Wikis (User Requested Blocks)
+# ----------------------------------------------------------------------------
+0.0.0.0 cp-algorithms.com
+0.0.0.0 www.cp-algorithms.com
+0.0.0.0 usaco.guide
+0.0.0.0 www.usaco.guide
+0.0.0.0 geeksforgeeks.org
+0.0.0.0 www.geeksforgeeks.org
+0.0.0.0 oi-wiki.org
+0.0.0.0 algowiki.net
+0.0.0.0 algowiki-project.org
+0.0.0.0 wikipedia.org
+0.0.0.0 www.wikipedia.org
+0.0.0.0 en.wikipedia.org
+0.0.0.0 mathworld.wolfram.com
+0.0.0.0 bigocheatsheet.com
+0.0.0.0 www.bigocheatsheet.com
+0.0.0.0 oeis.org
+0.0.0.0 www.oeis.org
+0.0.0.0 asciitable.com
+0.0.0.0 www.asciitable.com
+0.0.0.0 regex101.com
+0.0.0.0 www.regex101.com
+
+# ----------------------------------------------------------------------------
+# 4. Contest Platforms & Online Judges (Comprehensive + User Added)
+# ----------------------------------------------------------------------------
+0.0.0.0 codeforces.com
+0.0.0.0 www.codeforces.com
+0.0.0.0 mirror.codeforces.com
+0.0.0.0 atcoder.jp
+0.0.0.0 www.atcoder.jp
+0.0.0.0 codechef.com
+0.0.0.0 www.codechef.com
+0.0.0.0 hackerrank.com
+0.0.0.0 www.hackerrank.com
+0.0.0.0 cses.fi
+0.0.0.0 spoj.com
+0.0.0.0 www.spoj.com
+0.0.0.0 topcoder.com
+0.0.0.0 www.topcoder.com
+0.0.0.0 kattis.com
+0.0.0.0 www.kattis.com
+0.0.0.0 open.kattis.com
+0.0.0.0 uva.onlinejudge.org
+0.0.0.0 leetcode.com
+0.0.0.0 www.leetcode.com
+0.0.0.0 dmoj.ca
+0.0.0.0 timus.ru
+0.0.0.0 acm.timus.ru
+0.0.0.0 poj.org
+0.0.0.0 eolymp.com
+0.0.0.0 www.eolymp.com
+0.0.0.0 lightoj.com
+0.0.0.0 www.lightoj.com
+0.0.0.0 beecrowd.com.br
+0.0.0.0 www.beecrowd.com.br
+0.0.0.0 uri.com.br
+0.0.0.0 projecteuler.net
+0.0.0.0 www.projecteuler.net
+0.0.0.0 codetros.com
+0.0.0.0 www.codetros.com
+0.0.0.0 codemarshal.com
+0.0.0.0 www.codemarshal.com
+0.0.0.0 hackerearth.com
+0.0.0.0 www.hackerearth.com
+0.0.0.0 luogu.com.cn
+0.0.0.0 www.luogu.com.cn
+0.0.0.0 loj.ac
+0.0.0.0 vjudge.net
+0.0.0.0 contest.yandex.com
+0.0.0.0 codingcompetitions.withgoogle.com
+0.0.0.0 hackercup.com
+0.0.0.0 www.hackercup.com
+0.0.0.0 icpc.global
+0.0.0.0 ioi-official.org
+0.0.0.0 stats.ioinformatics.org
+0.0.0.0 csacademy.com
+0.0.0.0 www.csacademy.com
+
+# ----------------------------------------------------------------------------
+# 5. Tools (User Requested Blocks)
+# ----------------------------------------------------------------------------
+0.0.0.0 diffchecker.com
+0.0.0.0 www.diffchecker.com
+0.0.0.0 desmos.com
+0.0.0.0 www.desmos.com
+0.0.0.0 geogebra.org
+0.0.0.0 www.geogebra.org
+0.0.0.0 jsonformatter.org
+0.0.0.0 www.jsonformatter.org
+0.0.0.0 base64decode.org
+0.0.0.0 www.base64decode.org
+# Note: "Hex Calculator" and "Time Complexity Analyzer" are often generic terms/features of other sites or specific apps
+0.0.0.0 calculator.net
+
+# IDE Extensions/Marketplaces
+0.0.0.0 marketplace.visualstudio.com
+0.0.0.0 www.marketplace.visualstudio.com
+0.0.0.0 plugins.jetbrains.com
+0.0.0.0 www.plugins.jetbrains.com
+
+# ----------------------------------------------------------------------------
+# 6. Programming Q&A, Forums & Repositories
+# ----------------------------------------------------------------------------
+0.0.0.0 stackoverflow.com
+0.0.0.0 www.stackoverflow.com
+0.0.0.0 stackexchange.com
+0.0.0.0 www.stackexchange.com
+0.0.0.0 serverfault.com
+0.0.0.0 www.serverfault.com
+0.0.0.0 superuser.com
+0.0.0.0 www.superuser.com
+0.0.0.0 askubuntu.com
+0.0.0.0 www.askubuntu.com
+0.0.0.0 github.com
+0.0.0.0 www.github.com
+0.0.0.0 gist.github.com
+0.0.0.0 github.community
+0.0.0.0 gitlab.com
+0.0.0.0 www.gitlab.com
+0.0.0.0 bitbucket.org
+0.0.0.0 www.bitbucket.org
+0.0.0.0 reddit.com
+0.0.0.0 www.reddit.com
+0.0.0.0 old.reddit.com
+0.0.0.0 quora.com
+0.0.0.0 www.quora.com
+0.0.0.0 dev.to
+0.0.0.0 www.dev.to
+0.0.0.0 hashnode.com
+0.0.0.0 www.hashnode.com
+0.0.0.0 lobste.rs
+0.0.0.0 news.ycombinator.com
+
+# ----------------------------------------------------------------------------
+# 7. AI & LLMs (Comprehensive)
+# ----------------------------------------------------------------------------
+0.0.0.0 openai.com
+0.0.0.0 www.openai.com
+0.0.0.0 chat.openai.com
+0.0.0.0 chatgpt.com
+0.0.0.0 www.chatgpt.com
+0.0.0.0 platform.openai.com
+0.0.0.0 api.openai.com
+0.0.0.0 anthropic.com
+0.0.0.0 www.anthropic.com
+0.0.0.0 claude.ai
+0.0.0.0 www.claude.ai
+0.0.0.0 console.anthropic.com
+0.0.0.0 gemini.google.com
+0.0.0.0 bard.google.com
+0.0.0.0 aistudio.google.com
+0.0.0.0 deepmind.com
+0.0.0.0 www.deepmind.com
+0.0.0.0 copilot.microsoft.com
+0.0.0.0 bing.com/chat
+0.0.0.0 deepseek.com
+0.0.0.0 www.deepseek.com
+0.0.0.0 perplexity.ai
+0.0.0.0 www.perplexity.ai
+0.0.0.0 blackbox.ai
+0.0.0.0 www.blackbox.ai
+0.0.0.0 phind.com
+0.0.0.0 www.phind.com
+0.0.0.0 poe.com
+0.0.0.0 www.poe.com
+0.0.0.0 huggingface.co
+0.0.0.0 www.huggingface.co
+0.0.0.0 character.ai
+0.0.0.0 www.character.ai
+0.0.0.0 jasper.ai
+0.0.0.0 www.jasper.ai
+0.0.0.0 copy.ai
+0.0.0.0 midjourney.com
+0.0.0.0 stability.ai
+0.0.0.0 quillbot.com
+0.0.0.0 grammarly.com
+0.0.0.0 notion.so
+
+# ----------------------------------------------------------------------------
+# 8. Communication & Remote Access (User Requested)
+# ----------------------------------------------------------------------------
+0.0.0.0 slack.com
+0.0.0.0 www.slack.com
+0.0.0.0 teams.microsoft.com
+0.0.0.0 discord.com
+0.0.0.0 www.discord.com
+0.0.0.0 telegram.org
+0.0.0.0 web.telegram.org
+0.0.0.0 whatsapp.com
+0.0.0.0 web.whatsapp.com
+0.0.0.0 messenger.com
+0.0.0.0 www.messenger.com
+0.0.0.0 pastebin.com
+0.0.0.0 ideone.com
+0.0.0.0 hastebin.com
+0.0.0.0 teamviewer.com
+0.0.0.0 www.teamviewer.com
+0.0.0.0 anydesk.com
+0.0.0.0 www.anydesk.com
+0.0.0.0 replit.com
+0.0.0.0 www.replit.com
+0.0.0.0 codespaces.github.com
+0.0.0.0 github.dev
