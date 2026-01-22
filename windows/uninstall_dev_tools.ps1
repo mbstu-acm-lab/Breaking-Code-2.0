@@ -165,5 +165,57 @@ foreach ($pathPattern in $CleanupPaths) {
     }
 }
 
+# 5. CLEANUP PATH ENVIRONMENT VARIABLES
+Write-Host "Cleaning PATH environment variables..." -ForegroundColor Cyan
+
+# Paths to remove from system PATH
+$pathsToRemove = @(
+    "C:\msys64\ucrt64\bin",
+    "C:\msys64\mingw64\bin",
+    "C:\msys64\usr\bin",
+    "C:\MinGW\bin",
+    "C:\MinGW64\bin"
+)
+
+# Also check for Java and Python paths dynamically
+$currentPath = [Environment]::GetEnvironmentVariable("Path", [EnvironmentVariableTarget]::Machine)
+$pathArray = $currentPath -split ";"
+
+# Find Java and Python paths in current PATH
+foreach ($p in $pathArray) {
+    if ($p -match "\\Java\\|\\Python") {
+        $pathsToRemove += $p
+    }
+}
+
+# Remove duplicates
+$pathsToRemove = $pathsToRemove | Select-Object -Unique
+
+# Filter out paths that contain dev tool references
+$newPathArray = $pathArray | Where-Object {
+    $currentPathItem = $_
+    $shouldKeep = $true
+    
+    foreach ($removePattern in $pathsToRemove) {
+        if ($currentPathItem -like "*$removePattern*" -or $currentPathItem -eq $removePattern) {
+            $shouldKeep = $false
+            Write-Host "  Removing from PATH: $currentPathItem" -ForegroundColor Magenta
+            break
+        }
+    }
+    
+    $shouldKeep
+}
+
+# Update the PATH
+try {
+    $newPath = ($newPathArray | Where-Object { $_ -ne "" }) -join ";"
+    [Environment]::SetEnvironmentVariable("Path", $newPath, [EnvironmentVariableTarget]::Machine)
+    Write-Host "  PATH environment variable cleaned." -ForegroundColor Green
+}
+catch {
+    Write-Host "  Failed to update PATH: $_" -ForegroundColor Red
+}
+
 Write-Host "Done." -ForegroundColor Cyan
 Start-Sleep -Seconds 3
