@@ -54,6 +54,22 @@ Write-Host "Starting Installation Process..." -ForegroundColor Cyan
 Write-Host "This may take a while depending on your internet connection." -ForegroundColor DarkGray
 Write-Host "----------------------------------------"
 
+# Update winget itself first
+Write-Host "Updating winget..." -ForegroundColor Yellow
+try {
+    $updateProc = Start-Process -FilePath "winget" -ArgumentList "upgrade --id Microsoft.Winget.Source --accept-source-agreements" -PassThru -Wait -NoNewWindow
+    if ($updateProc.ExitCode -eq 0) {
+        Write-Host "  Winget updated successfully." -ForegroundColor Green
+    }
+    else {
+        Write-Host "  Winget update completed with code: $($updateProc.ExitCode)" -ForegroundColor Gray
+    }
+}
+catch {
+    Write-Host "  Failed to update winget: $_" -ForegroundColor Yellow
+}
+Write-Host "----------------------------------------"
+
 # 1. INSTALLATION LOOP
 foreach ($appName in $Packages.Keys) {
     $id = $Packages[$appName]
