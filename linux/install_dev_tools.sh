@@ -3,7 +3,7 @@
 # Install development tools on Ubuntu 24.04 LTS
 #
 # Installs:
-#   - GCC/G++ (build-essential)
+#   - GCC/G++ (build-essential) and GDB
 #   - Java (OpenJDK 25)
 #   - Python 3.14
 #   - Visual Studio Code
@@ -40,11 +40,15 @@ echo "----------------------------------------"
 echo -e "${YELLOW}Updating package lists...${NC}"
 apt-get update -qq
 
-# 1. Install GCC/G++ (build-essential)
-echo -e "${YELLOW}Installing GCC/G++ (build-essential)...${NC}"
-apt-get install -y build-essential
+# 1. Install GCC/G++ (build-essential) and GDB
+echo -e "${YELLOW}Installing GCC/G++ (build-essential) and GDB...${NC}"
+apt-get install -y build-essential gdb
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}  Success.${NC}"
+    # Verify installation
+    gcc --version > /dev/null 2>&1 && echo -e "${GREEN}  GCC installed successfully.${NC}"
+    g++ --version > /dev/null 2>&1 && echo -e "${GREEN}  G++ installed successfully.${NC}"
+    gdb --version > /dev/null 2>&1 && echo -e "${GREEN}  GDB installed successfully.${NC}"
 else
     echo -e "${GRAY}  Already installed or failed.${NC}"
 fi

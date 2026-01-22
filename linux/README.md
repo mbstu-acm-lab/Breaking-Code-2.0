@@ -6,7 +6,7 @@ This directory contains bash scripts equivalent to the Windows batch/PowerShell 
 
 ### install_dev_tools.sh
 Installs development tools including:
-- GCC/G++ (build-essential)
+- GCC/G++/GDB (build-essential)
 - Java (OpenJDK)
 - Python 3.14 (or latest available)
 - Visual Studio Code
