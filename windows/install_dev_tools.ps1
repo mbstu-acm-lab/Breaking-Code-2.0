@@ -92,15 +92,15 @@ foreach ($appName in $Packages.Keys) {
     # Special handling for MSYS2: Install GCC/G++ toolchain
     if ($id -eq "MSYS2.MSYS2") {
         Write-Host "  Installing GCC/G++ toolchain via pacman..." -ForegroundColor Yellow
-        if (Test-Path "C:\msys64\usr\bin\bash.exe") {
+        if (Test-Path "C:\msys64\msys2.exe") {
             # Update package database
-            Start-Process -FilePath "C:\msys64\usr\bin\bash.exe" -ArgumentList "-lc", "pacman -Syu --noconfirm" -Wait -NoNewWindow
+            Start-Process -FilePath "C:\msys64\msys2.exe" -ArgumentList "-c", "pacman -Syu --noconfirm" -Wait -NoNewWindow
             # Install base-devel and mingw toolchain
-            Start-Process -FilePath "C:\msys64\usr\bin\bash.exe" -ArgumentList "-lc", "pacman -S --needed --noconfirm base-devel mingw-w64-ucrt-x86_64-toolchain" -Wait -NoNewWindow
+            Start-Process -FilePath "C:\msys64\msys2.exe" -ArgumentList "-c", "pacman -S --needed --noconfirm base-devel mingw-w64-ucrt-x86_64-toolchain" -Wait -NoNewWindow
             Write-Host "  GCC/G++ toolchain installed." -ForegroundColor Green
         }
         else {
-            Write-Host "  MSYS2 bash not found. Toolchain installation skipped." -ForegroundColor Yellow
+            Write-Host "  MSYS2 not found. Toolchain installation skipped." -ForegroundColor Yellow
         }
     }
 }
