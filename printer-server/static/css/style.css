@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #0a0e1a;
+    --bg-card: rgba(12, 18, 35, 0.92);
+    --text: #e8edff;
+    --muted: #9fb3d8;
+    --accent-gold: #f6c445;
+    --accent-red: #e94560;
+    --accent-cyan: #4dd0e1;
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background: var(--bg-dark);
+    background-image:
+        radial-gradient(ellipse at 20% 0%, rgba(77, 208, 225, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 0%, rgba(246, 196, 69, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 100%, rgba(233, 69, 96, 0.06) 0%, transparent 50%);
+    color: var(--text);
+}
+
+/* Org logos - fixed top right */
+.org-logos {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+}
+
+.org-logo {
+    height: 36px;
+    width: auto;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.org-logo.mbstu {
+    height: 64px;
+}
+
+/* Page container */
+.page-shell {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+}
+
+/* Logo section - centered */
+.logo-section {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.brand-logo {
+    height: 160px;
+    width: auto;
+    filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.4));
+}
+
+/* Hero section - centered */
+.hero {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 20px rgba(246, 196, 69, 0.3);
+}
+
+.info-box {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a2e;
+    padding: 14px 28px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.info-line {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* Content area */
+.content {
+    display: flex;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 520px;
+}
+
+.card-header {
+    margin-bottom: 24px;
+}
+
+.eyebrow {
+    color: var(--accent-gold);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f4f6ff;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+select,
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: #1a2744;
+    color: #f4f6ff;
+}
+
+select option {
+    background: #1a2744;
+    color: #f4f6ff;
+}
+
+select:focus,
+input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 0 3px rgba(246, 196, 69, 0.15);
+}
+
+input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button {
+    padding: 8px 14px;
+    background: #1a2744;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 12px;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: #243352;
+}
+
+.helper {
+    margin-top: 8px;
+    text-align: right;
+}
+
+.helper a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.helper a:hover {
+    text-decoration: underline;
+}
+
+/* Button */
+.btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--accent-red) 0%, #c73e54 50%, #f6c445 150%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.35);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(233, 69, 96, 0.45);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Success page */
+.success-shell {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.success-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px 36px 32px 36px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.success-icon {
+    font-size: 64px;
+    color: #2dd36f;
+    margin-bottom: 18px;
+    font-weight: bold;
+}
+
+.success-card h1 {
+    font-size: 26px;
+    color: #fff;
+    margin-bottom: 12px;
+    font-weight: 800;
+}
+
+
+.success-message {
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+.filename {
+    color: #f4f6ff;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 13px 18px;
+    border-radius: 8px;
+    margin: 18px 0 10px 0;
+    border: 1px solid var(--border);
+    word-break: break-all;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.team-info {
+    color: var(--accent-gold);
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.team-info span {
+    color: var(--muted);
+    font-weight: 600;
+    margin-right: 4px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 22px;
+    padding: 13px 32px;
+    background: linear-gradient(135deg, var(--accent-red) 0%, #c73e54 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 24px rgba(233, 69, 96, 0.35);
+}
+
+.back-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .org-logos {
+        top: 16px;
+        right: 16px;
+        gap: 8px;
+    }
+
+    .org-logo {
+        height: 36px;
+        padding: 4px 6px;
+    }
+
+    .brand-logo {
+        height: 120px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+        letter-spacing: 2px;
+    }
+
+    .info-box {
+        padding: 12px 20px;
+    }
+
+    .info-line {
+        font-size: 12px;
+    }
+
+    .success-shell {
+        padding: 24px 4px;
+        min-height: 100vh;
+    }
+    .success-card {
+        padding: 28px 8px;
+    }
+    .success-icon {
+        font-size: 40px;
+    }
+    .filename {
+        font-size: 12px;
+        padding: 9px 6px;
+    }
+    .team-info {
+        font-size: 13px;
+    }
+    .back-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+}

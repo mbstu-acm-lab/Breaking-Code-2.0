@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Code 2.0 - File Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Organizer logos fixed to top-right -->
+    <div class="org-logos">
+        <img src="{{ url_for('static', filename='images/mbstu_logo.png') }}" alt="MBSTU" class="org-logo mbstu">
+        <img src="{{ url_for('static', filename='images/cse_logo.png') }}" alt="CSE" class="org-logo">
+    </div>
+
+    <div class="page-shell">
+        <!-- Centered main logo -->
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='images/main_logo.png') }}" alt="Breaking Code 2.0" class="brand-logo">
+        </div>
+
+        <!-- Centered hero title -->
+        <div class="hero">
+            <h1 class="hero-title">Programming Contest</h1>
+            <div class="info-box">
+                <div class="info-line">📍 3rd Academic Building, Department of CSE, MBSTU</div>
+                <div class="info-line">📅 24 January, 2026 | 9 AM</div>
+            </div>
+        </div>
+
+        <!-- Upload card -->
+        <main class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="eyebrow">On-site Submission</div>
+                    <h2>Upload your file</h2>
+                    <p class="lead">Select your team from the official seat plan or enter it manually.</p>
+                </div>
+
+                <form method="post" enctype="multipart/form-data" id="uploadForm">
+                    <div class="form-group" id="teamSelectGroup">
+                        <label for="teamSelect">Select Your Team</label>
+                        <select name="team" id="teamSelect" required>
+                            <option value="">-- Choose Your Team --</option>
+                            {% for team_name, team_display in teams %}
+                            <option value="{{ team_name }}">{{ team_display }}</option>
+                            {% endfor %}
+                        </select>
+                        <div class="helper">
+                            <a href="#" onclick="toggleCustomTeam(); return false;">Team not listed? Enter manually</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group hidden" id="teamInputGroup">
+                        <label for="teamInput">Team Name</label>
+                        <input type="text" name="team_custom" id="teamInput" placeholder="Enter your team name">
+                        <div class="helper">
+                            <a href="#" onclick="toggleCustomTeam(); return false;">Select from list instead</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fileInput">Choose File</label>
+                        <input type="file" name="file" id="fileInput" required>
+                    </div>
+
+                    <button type="submit" class="btn">Upload File</button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function toggleCustomTeam() {
+            const selectGroup = document.getElementById('teamSelectGroup');
+            const inputGroup = document.getElementById('teamInputGroup');
+            const teamSelect = document.getElementById('teamSelect');
+            const teamInput = document.getElementById('teamInput');
+            
+            if (selectGroup.classList.contains('hidden')) {
+                selectGroup.classList.remove('hidden');
+                inputGroup.classList.add('hidden');
+                teamSelect.required = true;
+                teamInput.required = false;
+                teamInput.value = '';
+            } else {
+                selectGroup.classList.add('hidden');
+                inputGroup.classList.remove('hidden');
+                teamSelect.required = false;
+                teamInput.required = true;
+                teamSelect.value = '';
+            }
+        }
+    </script>
+</body>
+</html>

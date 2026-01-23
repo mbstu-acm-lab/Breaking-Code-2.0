@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success - Breaking Code 2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="success-shell">
+        <div class="success-card">
+            <div class="success-icon">✓</div>
+            <h1>Upload Successful!</h1>
+            <div class="filename">{{ filename }}</div>
+            <div class="team-info"><span>Team:</span> <strong>{{ team }}</strong></div>
+            <p class="success-message">Your file has been uploaded and received by the organizers.</p>
+            <a href="/" class="back-btn">Upload Another File</a>
+        </div>
+    </div>
+</body>
+</html>
