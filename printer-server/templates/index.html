@@ -42,8 +42,8 @@
                         <label for="teamSelect">Select Your Team</label>
                         <select name="team" id="teamSelect" required>
                             <option value="">-- Choose Your Team --</option>
-                            {% for team_name, team_display in teams %}
-                            <option value="{{ team_name }}">{{ team_display }}</option>
+                            {% for team_name in teams %}
+                            <option value="{{ team_name }}">{{ team_name }}</option>
                             {% endfor %}
                         </select>
                         <div class="helper">

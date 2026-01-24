@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if success %}Print Success{% else %}Error{% endif %} - Breaking Code 2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="success-shell">
+        <div class="success-card">
+            {% if success %}
+            <div class="success-icon">✓</div>
+            <h1>Print Successful!</h1>
+            <div class="filename">{{ filename }}</div>
+            <div class="team-info"><span>Team:</span> <strong>{{ team }}</strong></div>
+            {% if team_info and team_info.room %}
+            <div style="font-size: 14px; color: var(--muted); margin-top: 8px;">
+                {{ team_info.room }} - Desk {{ team_info.desk }}
+            </div>
+            {% endif %}
+            
+            <div class="quota-display" style="margin: 20px 0; padding: 16px; background: rgba(77, 208, 225, 0.1); border: 1px solid var(--accent-cyan); border-radius: 8px;">
+                <div style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Printing Status</div>
+                <div style="font-size: 18px; font-weight: 700; color: var(--accent-cyan);">{{ pages }} pages printed</div>
+                <div style="margin-top: 12px; font-size: 14px;">
+                    <span style="color: var(--muted);">Quota:</span> 
+                    <strong style="color: var(--text);">{{ quota_info.used }}/{{ quota_info.max }}</strong> pages used
+                </div>
+                <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">
+                    {{ quota_info.remaining }} pages remaining
+                </div>
+            </div>
+            
+            <p class="success-message">Your printout will be delivered to your desk by volunteers shortly. Please wait at your workstation.</p>
+            <a href="/" class="back-btn">Upload Another File</a>
+            
+            {% else %}
+            <div class="error-icon" style="font-size: 64px; color: var(--accent-red); margin-bottom: 18px; font-weight: bold;">✗</div>
+            <h1 style="color: var(--accent-red);">Upload Failed</h1>
+            
+            <div class="error-message" style="margin: 20px 0; padding: 16px; background: rgba(233, 69, 96, 0.1); border: 1px solid var(--accent-red); border-radius: 8px; color: #ffb3b3; font-size: 15px;">
+                {{ error }}
+            </div>
+            
+            {% if quota_info %}
+            <div class="quota-display" style="margin: 20px 0; padding: 16px; background: rgba(159, 179, 216, 0.1); border: 1px solid var(--border); border-radius: 8px;">
+                <div style="font-size: 13px; color: var(--muted); margin-bottom: 8px;">Current Quota</div>
+                <div style="font-size: 14px;">
+                    <span style="color: var(--muted);">Used:</span> 
+                    <strong style="color: var(--text);">{{ quota_info.used }}/{{ quota_info.max }}</strong> pages
+                </div>
+                <div style="font-size: 13px; color: var(--muted); margin-top: 4px;">
+                    {{ quota_info.remaining }} pages remaining
+                </div>
+            </div>
+            {% endif %}
+            
+            <a href="/" class="back-btn" style="background: linear-gradient(135deg, var(--accent-red) 0%, #c73e54 100%);">Try Again</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

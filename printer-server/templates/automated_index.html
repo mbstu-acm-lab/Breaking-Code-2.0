@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking Code 2.0 - Automated Print Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Organizer logos fixed to top-right -->
+    <div class="org-logos">
+        <img src="{{ url_for('static', filename='images/mbstu_logo.png') }}" alt="MBSTU" class="org-logo mbstu">
+        <img src="{{ url_for('static', filename='images/cse_logo.png') }}" alt="CSE" class="org-logo">
+    </div>
+
+    <div class="page-shell">
+        <!-- Centered main logo -->
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='images/main_logo.png') }}" alt="Breaking Code 2.0" class="brand-logo">
+        </div>
+
+        <!-- Centered hero title -->
+        <div class="hero">
+            <h1 class="hero-title">Programming Contest</h1>
+            <div class="info-box">
+                <div class="info-line">📍 3rd Academic Building, Department of CSE, MBSTU</div>
+                <div class="info-line">📅 24 January, 2026 | 9 AM</div>
+            </div>
+        </div>
+
+        <!-- Upload Card -->
+        <div class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="eyebrow">Automated Print Server</div>
+                    <h2>Upload & Print</h2>
+                    <p class="lead">Upload PDF or code files. Each team has {{ max_pages }} pages quota. Your printout will be delivered by volunteers shortly.</p>
+                </div>
+
+                <form method="post" enctype="multipart/form-data" id="uploadForm">
+                    <div class="form-group">
+                        <label for="team">Select Your Team</label>
+                        <select name="team" id="team" required>
+                            <option value="">-- Choose your team --</option>
+                            {% for team in teams %}
+                            <option value="{{ team }}">{{ team }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Upload File</label>
+                        <input type="file" name="file" id="file" accept=".pdf,.txt,.cpp,.c,.java,.py,.js,.cs,.h,.hpp" required>
+                        <div class="helper">
+                            <a href="/quota" target="_blank">Check Quota Status →</a>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn" id="submitBtn">
+                        <span id="btnText">Upload & Print</span>
+                        <span id="btnLoading" class="hidden">⏳ Processing...</span>
+                    </button>
+                </form>
+
+                <div class="quota-warning" style="margin-top: 20px; padding: 12px; background: rgba(246, 196, 69, 0.1); border: 1px solid var(--accent-gold); border-radius: 8px; font-size: 13px; color: var(--accent-gold);">
+                    <strong>⚠️ Important:</strong> PDF, TXT, and code files (.cpp, .c, .java, .py, etc.) are accepted. Max {{ max_pages }} pages per team. Your printout will be delivered to your desk by volunteers.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+
+        form.addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            btnText.classList.add('hidden');
+            btnLoading.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

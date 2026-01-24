@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quota Status - Breaking Code 2.0</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quota.css') }}">
+</head>
+<body>
+    <div class="page-shell" style="max-width: 1000px;">
+        <div class="logo-section" style="margin-bottom: 30px;">
+            <h1 style="font-size: 28px; font-weight: 900; color: var(--accent-gold); text-align: center; margin-bottom: 8px;">
+                Print Quota Status
+            </h1>
+            <p style="text-align: center; color: var(--muted); font-size: 14px;">
+                Breaking Code 2.0 - Maximum {{ max_pages }} pages per team
+            </p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <h2 style="font-size: 18px; color: #fff; font-weight: 700;">All Teams</h2>
+                <a href="/" style="color: var(--accent-cyan); text-decoration: none; font-size: 14px; font-weight: 600;">
+                    ← Back to Upload
+                </a>
+            </div>
+
+            <table class="quota-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40%;">Team Name</th>
+                        <th style="width: 15%; text-align: center;">Used</th>
+                        <th style="width: 15%; text-align: center;">Remaining</th>
+                        <th style="width: 30%;">Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in quota_info %}
+                    <tr>
+                        <td style="font-weight: 600;">{{ item.team }}</td>
+                        <td style="text-align: center;">
+                            {{ item.used }}/{{ max_pages }}
+                        </td>
+                        <td style="text-align: center;">
+                            {% if item.remaining > 0 %}
+                                <span style="color: var(--accent-cyan);">{{ item.remaining }}</span>
+                            {% else %}
+                                <span style="color: var(--accent-red);">0</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div class="quota-bar" style="flex: 1;">
+                                    <div class="quota-fill {% if item.percentage >= 80 %}danger{% endif %}" 
+                                         style="width: {{ item.percentage | string }}%;"></div>
+                                </div>
+                                {% if item.used == 0 %}
+                                    <span class="status-badge status-ok">Fresh</span>
+                                {% elif item.percentage < 80 %}
+                                    <span class="status-badge status-ok">OK</span>
+                                {% elif item.percentage < 100 %}
+                                    <span class="status-badge status-warning">Low</span>
+                                {% else %}
+                                    <span class="status-badge status-danger">Full</span>
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align: center; padding: 20px;">
+            <a href="/" class="back-btn">Upload New File</a>
+        </div>
+    </div>
+</body>
+</html>
